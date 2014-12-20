@@ -14,6 +14,7 @@
 		89617A451A445603001037A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89617A441A445603001037A9 /* Images.xcassets */; };
 		89617A481A445603001037A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89617A461A445603001037A9 /* LaunchScreen.xib */; };
 		89617A541A445603001037A9 /* NumberTextFieldDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89617A531A445603001037A9 /* NumberTextFieldDemoTests.m */; };
+		89617A611A4456EB001037A9 /* NumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = 89617A601A4456EB001037A9 /* NumberField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		89617A4D1A445603001037A9 /* NumberTextFieldDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumberTextFieldDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89617A521A445603001037A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89617A531A445603001037A9 /* NumberTextFieldDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NumberTextFieldDemoTests.m; sourceTree = "<group>"; };
+		89617A5F1A4456EB001037A9 /* NumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberField.h; sourceTree = "<group>"; };
+		89617A601A4456EB001037A9 /* NumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		89617A361A445602001037A9 /* NumberTextFieldDemo */ = {
 			isa = PBXGroup;
 			children = (
+				89617A5E1A4456B9001037A9 /* NumberTextFieldClasses */,
 				89617A3B1A445602001037A9 /* AppDelegate.h */,
 				89617A3C1A445602001037A9 /* AppDelegate.m */,
 				89617A3E1A445602001037A9 /* ViewController.h */,
@@ -117,6 +121,15 @@
 				89617A521A445603001037A9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89617A5E1A4456B9001037A9 /* NumberTextFieldClasses */ = {
+			isa = PBXGroup;
+			children = (
+				89617A5F1A4456EB001037A9 /* NumberField.h */,
+				89617A601A4456EB001037A9 /* NumberField.m */,
+			);
+			name = NumberTextFieldClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89617A401A445602001037A9 /* ViewController.m in Sources */,
+				89617A611A4456EB001037A9 /* NumberField.m in Sources */,
 				89617A3D1A445602001037A9 /* AppDelegate.m in Sources */,
 				89617A3A1A445602001037A9 /* main.m in Sources */,
 			);
