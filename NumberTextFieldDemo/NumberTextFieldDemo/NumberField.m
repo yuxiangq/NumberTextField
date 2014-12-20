@@ -42,9 +42,6 @@ static const int kNumericDefaultDigits=2;
 - (BOOL)textField:(UITextField *)textField
 shouldChangeCharactersInRange:(NSRange)range
 replacementString:(NSString *)string{
-    NSLog(@"input %@",string);
-    NSLog(@"text %@",textField.text);
-    
     //判断数字总长度,默认长度为8.
     int length=self.numeric.length==0?kNumericDefaultLength:self.numeric.length;
     //判断是否输入的是小数点
@@ -94,7 +91,6 @@ replacementString:(NSString *)string{
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     NSMutableString *tempString=[NSMutableString stringWithString:textField.text];
-    NSLog(@"测试 %@",[tempString substringToIndex:1]);
     if ([[tempString substringToIndex:1] isEqualToString:kDecimalPoint]) {
         [tempString insertString:@"0" atIndex:0];
         textField.text=tempString;
