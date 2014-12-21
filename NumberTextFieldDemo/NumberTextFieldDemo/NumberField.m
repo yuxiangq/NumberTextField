@@ -91,10 +91,60 @@ replacementString:(NSString *)string{
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     NSMutableString *tempString=[NSMutableString stringWithString:textField.text];
+    if ([tempString isEqualToString:@""]) {
+        return;
+    }
+    
+    //如果首位为小数点则补0。
     if ([[tempString substringToIndex:1] isEqualToString:kDecimalPoint]) {
         [tempString insertString:@"0" atIndex:0];
         textField.text=tempString;
+        return;
     }
+    
+    //如果末位为小数点则去掉小数点
+    if ([[tempString substringFromIndex:tempString.length-1] isEqualToString:kDecimalPoint]) {
+        tempString=[NSMutableString stringWithString:[tempString substringToIndex:tempString.length-1]];
+    }
+    
+    
+    //去除数字前多余的0
+    if ([tempString rangeOfString:kDecimalPoint].length==0) {
+        //没有小数点
+        while ([[tempString substringToIndex:1] isEqualToString:@"0"]) {
+            tempString=[NSMutableString stringWithString:[tempString substringFromIndex:1]];
+            if (tempString.length==1) {
+                break;
+            }
+        }
+    }
+    else{
+        //有小数点
+        //将数字分割为整数部分和小数部分
+        NSRange digitsRange=[tempString rangeOfString:kDecimalPoint];
+        //获取整数部分
+        NSString *integerString=[tempString substringToIndex:digitsRange.location];
+        //获取小数部分
+        NSString *decimalString=[tempString substringFromIndex:digitsRange.location+1];
+        
+        //去掉整数部分的0
+        while ([[integerString substringToIndex:1] isEqualToString:@"0"]) {
+            integerString=[NSMutableString stringWithString:[integerString substringFromIndex:1]];
+            if (integerString.length==1) {
+                break;
+            }
+        }
+
+        tempString=[NSMutableString stringWithFormat:@"%@.%@",integerString,decimalString];
+//        //去掉小数部分末位的0
+//        
+//        while ([[decimalString substringFromIndex:decimalString.length-1] isEqualToString:@"0"]) {
+//            decimalString=[NSMutableString stringWithString:[decimalString substringFromIndex:decimalString.length-2]];
+//        }
+    }
+
+    textField.text=tempString;
+    
 }
 
 @end
