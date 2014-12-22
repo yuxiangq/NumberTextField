@@ -1,5 +1,6 @@
 NumberTextField
 ===============
+![image](https://raw.githubusercontent.com/yuxiangq/NumberTextField/master/Screenshots/61F90395-1DDC-4BDA-9DDB-B4E0C7B01ADD.png)
 
 一个只允许输入数字的TextField子类
 
