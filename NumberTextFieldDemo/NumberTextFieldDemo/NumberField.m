@@ -27,8 +27,9 @@ static const int kNumericDefaultDigits=2;
         _hasDecimalPoint=NO;
         self.borderStyle=UITextBorderStyleRoundedRect;
         self.keyboardType=UIKeyboardTypeDecimalPad;
+        self.adjustsFontSizeToFitWidth=YES;
+        self.minimumFontSize=10;
         self.delegate=self;
-        
     }
     return self;
 }

@@ -20,6 +20,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     NumberField *numberField=[[NumberField alloc] initWithFrame:CGRectMake(100, 100, 120, 44)];
     numberField.placeholder=@"只能输入数字";
+    numberField.numeric=CGNumeric(10, 4);
     [self.view addSubview:numberField];
     
     UITapGestureRecognizer *tapGestureRecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
