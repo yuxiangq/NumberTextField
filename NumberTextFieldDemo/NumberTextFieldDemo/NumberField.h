@@ -10,13 +10,13 @@
 
 typedef struct Numeric{
    int length;
-   int digits;
+   int decimalDigits;
 } Numeric;
 
 CG_INLINE Numeric
-CGNumeric(NSInteger length, NSInteger digits)
+CGNumeric(NSInteger length, NSInteger decimalDigits)
 {
-    Numeric num; num.length = length; num.digits = digits; return num;
+    Numeric num; num.length = length; num.decimalDigits = decimalDigits; return num;
 }
 
 

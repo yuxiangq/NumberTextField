@@ -78,11 +78,11 @@ replacementString:(NSString *)string{
             //获取小数部分
             NSString *decimalString=[tempString substringFromIndex:digitsRange.location+1];
             
-            if (integerString.length>(length-(self.numeric.digits==0?kNumericDefaultDigits:self.numeric.digits))) {
+            if (integerString.length>(length-(self.numeric.decimalDigits==0?kNumericDefaultDigits:self.numeric.decimalDigits))) {
                 return NO;
             }
             
-            if (decimalString.length>(self.numeric.digits==0?kNumericDefaultDigits:self.numeric.digits)) {
+            if (decimalString.length>(self.numeric.decimalDigits==0?kNumericDefaultDigits:self.numeric.decimalDigits)) {
                 return NO;
             }
         }
