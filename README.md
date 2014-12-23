@@ -1,5 +1,6 @@
 NumberTextField
 ===============
+![image](https://raw.githubusercontent.com/yuxiangq/NumberTextField/master/Screenshots/61F90395-1DDC-4BDA-9DDB-B4E0C7B01ADD.png)
 
 一个只允许输入数字的TextField子类
 
@@ -29,14 +30,14 @@ Numeric结构体用来表示数字的精度
 <pre><code>
 typedef struct Numeric{
    int length;
-   int digits;
+   int decimalDigits;
 } Numeric;
 </code></pre>
 
 **length**表示数字的长度，**digits**表示小数点位数
 例如:
 <pre><code>
-Numeric = CGNumeric(6, 2);//CGNumeric(NSInteger length, NSInteger digits) 生成Numeric的方法
+Numeric = CGNumeric(6, 2);//CGNumeric(NSInteger length, NSInteger decimalDigits) 生成Numeric的方法
 </code></pre>
 表示长度为6，最多两位小数点的数。比如123456或1234.56
 
