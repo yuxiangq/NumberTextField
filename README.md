@@ -34,7 +34,7 @@ typedef struct Numeric{
 } Numeric;
 </code></pre>
 
-**length**表示数字的长度，**digits**表示小数点位数
+**length**表示数字的长度，**decimalDigits**表示小数点位数
 例如:
 <pre><code>
 Numeric = CGNumeric(6, 2);//CGNumeric(NSInteger length, NSInteger decimalDigits) 生成Numeric的方法
