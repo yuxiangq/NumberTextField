@@ -141,7 +141,7 @@ replacementString:(NSString *)string{
         NSString *decimalString=[tempString substringFromIndex:digitsRange.location+1];
         
         //去掉整数部分的0
-        while ([[integerString substringToIndex:1] isEqualToString:@"0"]) {
+        while (integerString.length>1&&[[integerString substringToIndex:1] isEqualToString:@"0"]) {
             integerString=[NSMutableString stringWithString:[integerString substringFromIndex:1]];
             if (integerString.length==1) {
                 break;
