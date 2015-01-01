@@ -91,16 +91,28 @@ replacementString:(NSString *)string{
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    NSMutableString *tempString=[NSMutableString stringWithString:textField.text];
+    textField.text=[self p_TrimText:textField.text];
+}
+
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+    if ([UIMenuController sharedMenuController]) {
+        [UIMenuController sharedMenuController].menuVisible = NO;
+    }
+    return NO;
+}
+
+#pragma mark -
+#pragma mark Private Methods
+-(NSString*)p_TrimText:(NSString*)text{
+    NSMutableString *tempString=[NSMutableString stringWithString:text];
     if ([tempString isEqualToString:@""]) {
-        return;
+        return tempString;
     }
     
     //如果首位为小数点则补0。
     if ([[tempString substringToIndex:1] isEqualToString:kDecimalPoint]) {
         [tempString insertString:@"0" atIndex:0];
-        textField.text=tempString;
-        return;
+        return tempString;
     }
     
     //如果末位为小数点则去掉小数点
@@ -135,23 +147,16 @@ replacementString:(NSString *)string{
                 break;
             }
         }
-
+        
         tempString=[NSMutableString stringWithFormat:@"%@.%@",integerString,decimalString];
-//        //去掉小数部分末位的0
-//        
-//        while ([[decimalString substringFromIndex:decimalString.length-1] isEqualToString:@"0"]) {
-//            decimalString=[NSMutableString stringWithString:[decimalString substringFromIndex:decimalString.length-2]];
-//        }
+        //        //去掉小数部分末位的0
+        //
+        //        while ([[decimalString substringFromIndex:decimalString.length-1] isEqualToString:@"0"]) {
+        //            decimalString=[NSMutableString stringWithString:[decimalString substringFromIndex:decimalString.length-2]];
+        //        }
     }
-
-    textField.text=tempString;
-}
-
--(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
-    if ([UIMenuController sharedMenuController]) {
-        [UIMenuController sharedMenuController].menuVisible = NO;
-    }
-    return NO;
+    
+    return tempString;
 }
 
 @end
