@@ -20,6 +20,10 @@ static const int kNumericDefaultDigits=2;
 
 @implementation NumberField
 
+-(NSString*)text{
+    return [self p_TrimText:super.text];
+}
+
 #pragma mark -
 #pragma mark Init Methods
 -(id)initWithFrame:(CGRect)frame{
