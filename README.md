@@ -41,3 +41,8 @@ Numeric = CGNumeric(6, 2);//CGNumeric(NSInteger length, NSInteger decimalDigits)
 </code></pre>
 表示长度为6，最多两位小数点的数。比如123456或1234.56
 
+## 方法
+-(NSString*)trimText;
+处理掉数字中的冗余。
+比如00001，将处理为1;.0001将处理为0.0001。
+
