@@ -20,10 +20,6 @@ static const int kNumericDefaultDigits=2;
 
 @implementation NumberField
 
--(NSString*)text{
-    return [self p_TrimText:super.text];
-}
-
 #pragma mark -
 #pragma mark Init Methods
 -(id)initWithFrame:(CGRect)frame{
@@ -48,13 +44,13 @@ static const int kNumericDefaultDigits=2;
 shouldChangeCharactersInRange:(NSRange)range
 replacementString:(NSString *)string{
     //判断数字总长度,默认长度为8.
-    int length=self.numeric.length==0?kNumericDefaultLength:self.numeric.length;
+    NSInteger length=self.numeric.length==0?kNumericDefaultLength:self.numeric.length;
     //判断是否输入的是小数点
     if ([string isEqualToString:kDecimalPoint]) {
         //判断是否已输入过小数点
-        if ([textField.text rangeOfString:kDecimalPoint].length==0) {
+        if ([self.text rangeOfString:kDecimalPoint].length==0) {
             //未输入过小数点
-            if (length<(textField.text.length+string.length)) {
+            if (length<(self.text.length+string.length)) {
                 return NO;
             }
             return YES;
@@ -67,13 +63,13 @@ replacementString:(NSString *)string{
     else{
         //输入的不是小数点
         //判断是否已输入过小数点
-        if ([textField.text rangeOfString:kDecimalPoint].length==0) {
+        if ([self.text rangeOfString:kDecimalPoint].length==0) {
             //未输入过小数点
-            return length>=(textField.text.length+string.length);
+            return length>=(self.text.length+string.length);
         }
         else{
             //已输入过小数点,则要分开判断整数部分和小数部分。
-            NSMutableString *tempString=[NSMutableString stringWithString:textField.text];
+            NSMutableString *tempString=[NSMutableString stringWithString:self.text];
             [tempString insertString:string atIndex:range.location];
             NSRange digitsRange=[tempString rangeOfString:kDecimalPoint];
             
@@ -95,7 +91,7 @@ replacementString:(NSString *)string{
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    textField.text=[self p_TrimText:textField.text];
+    textField.text=[self p_TrimText:self.text];
 }
 
 -(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
@@ -161,6 +157,12 @@ replacementString:(NSString *)string{
     }
     
     return tempString;
+}
+
+#pragma mark -
+#pragma mark Public Methods
+-(NSString*)trimText{
+    return [self p_TrimText:self.text];
 }
 
 @end
