@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef struct Numeric{
-   int length;
-   int decimalDigits;
+   NSInteger length;
+   NSInteger decimalDigits;
 } Numeric;
 
 CG_INLINE Numeric
@@ -19,11 +19,11 @@ CGNumeric(NSInteger length, NSInteger decimalDigits)
     Numeric num; num.length = length; num.decimalDigits = decimalDigits; return num;
 }
 
-
-
 @interface NumberField : UITextField
 
 @property (assign,nonatomic) Numeric numeric;
+
+-(NSString*)trimText;
 
 @end
 
